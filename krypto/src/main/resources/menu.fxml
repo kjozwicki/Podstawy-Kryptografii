@@ -5,7 +5,12 @@
 
 <AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="krypto.Controller">
    <children>
-       <Button layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#onActionButtonLoad" prefHeight="25.0" prefWidth="100.0" text="Wczytaj plik" />
-       <Button layoutX="25.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionButtonSave" prefHeight="25.0" prefWidth="100.0" text="Zapisz plik" />
+       <Button layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#onActionButtonLoad" prefHeight="25.0" prefWidth="150.0" text="Wczytaj plik" />
+       <Button layoutX="25.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionButtonSave" prefHeight="25.0" prefWidth="150.0" text="Zapisz plik" />
+       <Button layoutX="545.0" layoutY="25.0" mnemonicParsing="false" onAction="#onActionButtonLoad" prefHeight="25.0" prefWidth="150.0" text="Szyfruj plik" />
+       <Button layoutX="545.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionButtonSave" prefHeight="25.0" prefWidth="150.0" text="Deszyfruj plik" />
+       <Button layoutX="25.0" layoutY="430.0" mnemonicParsing="false" onAction="#onActionButtonShow" prefHeight="25.0" prefWidth="150.0" text="Pokaz nazwe pliku" />
+       <Button layoutX="25.0" layoutY="405.0" mnemonicParsing="false" onAction="#onActionButtonShowFile" prefHeight="25.0" prefWidth="150.0" text="Pokaz zawartosc pliku" />
+       <Button fx:id="Exit" layoutX="545.0" layoutY="430.0" mnemonicParsing="false" onAction="#onActionButtonExit" prefHeight="25.0" prefWidth="150.0" text="Wyjscie z programu" />
    </children>
 </AnchorPane>

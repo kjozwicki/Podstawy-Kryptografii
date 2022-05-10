@@ -1,46 +1,35 @@
 package krypto;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class FileReader {
-    private String path;
-    private File file;
-    private FileInputStream fileInputStream = null;
     private byte[] bytes;
 
     public byte[] getBytes() {
         return bytes;
     }
 
-    public void setBytes(byte[] bytes) {
-        this.bytes = bytes;
+    public void setBytes(byte[] bytes_global) {
+        this.bytes = bytes_global;
     }
 
-    public void read(String name) {
+    public void read(Path name) {
         try {
-            file = new File(path);
-            bytes = new byte[(int) file.length()];
-            fileInputStream = new FileInputStream(file);
-            fileInputStream.read(bytes);
-            fileInputStream.close();
-
-            for(int i = 0; i < bytes.length; i++)
-                System.out.print((char) bytes[i]);
+            File file;
+            bytes = Files.readAllBytes(name);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void save(byte[] bytes) {
+    public void save(byte[] bytes_global, Path name) {
         try {
-            file = new File("nowy.txt");
-            OutputStream os = new FileOutputStream(file);
-            os.write(bytes);
-            System.out.println("Plik zapisany");
-            os.close();
+            Files.write(name, bytes_global);
         } catch (Exception e) {
             e.printStackTrace();
         }
