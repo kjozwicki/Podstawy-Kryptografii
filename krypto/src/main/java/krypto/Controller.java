@@ -19,6 +19,7 @@ public class Controller {
     private FileReader fr = new FileReader();
     private FileChooser fileChooser;
     private String saveName = "pusty.txt";
+    private Algorithm ar = new Algorithm();
     private Path path = Path.of("C:/pusty.txt");
 
     public Button Exit;
@@ -58,6 +59,14 @@ public class Controller {
         Stage st2 = new Stage();
         st2.setScene(sc2);
         st2.show();
+    }
+
+    public void onActionButtonEncode(ActionEvent actionEvent) throws IOException {
+        fr.setBytes(ar.decode3DES(fr.getBytes()));
+    }
+
+    public void onActionButtonDecode(ActionEvent actionEvent) throws IOException {
+        fr.setBytes(ar.encode3DES(fr.getBytes()));
     }
 
     public void onActionButtonSave(ActionEvent actionEvent) throws IOException {
