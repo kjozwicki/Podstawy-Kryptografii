@@ -100,6 +100,18 @@ public class Converter {
         return out;
     }
 
+    public static byte[] selectBits(byte[] in, byte[] map)
+    {
+        int numOfBytes = (map.length - 1) / 8 + 1;
+        byte[] out = new byte[numOfBytes];
+        for (int i = 0; i < map.length; i++)
+        {
+            int val = getBitAt(in, map[i] - 1);
+            setBitAt(out, i, val);
+        }
+        return out;
+    }
+
     public static byte[] rotateLeft(byte[] in, int len, int step)
     {
         byte[] out = new byte[(len - 1) / 8 + 1];

@@ -20,7 +20,7 @@ public class Algorithm {
         final byte[] SHIFTS = {1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1};
         byte[] activeKey = new byte[0];
         for (int k = 0; k < 16; k++)
-            activeKey = Converter.selectBits(this.b_key, PC1[k], this.b_key.length);
+            activeKey = Converter.selectBits(this.b_key, PC1);
         int halfKeySize = 28;
         byte[] c = Converter.selectBits(activeKey, 0, halfKeySize);
         byte[] d = Converter.selectBits(activeKey, halfKeySize, halfKeySize);
@@ -30,7 +30,7 @@ public class Algorithm {
             c = Converter.rotateLeft(c, halfKeySize, SHIFTS[k]);
             d = Converter.rotateLeft(d, halfKeySize, SHIFTS[k]);
             byte[] cd = Converter.joinBlocks(c, halfKeySize, d, halfKeySize);
-            subKeysLocal[k] = Converter.selectBits(cd, PC2[k], cd.length);
+            subKeysLocal[k] = Converter.selectBits(cd, PC2);
         }
         return subKeysLocal;
     }
@@ -42,7 +42,6 @@ public class Algorithm {
         {   this.s_key = key;
             subKeys = getSubkeys();
         }
-
     }
 
     public boolean testKey()
@@ -80,7 +79,7 @@ public class Algorithm {
             r = Converter.computeExtendedBlock(r);
             r = Converter.XORBytes(r, subKeys[k]);
             r = Converter.sBlocks(r);
-            r = Converter.selectBits(r, pBlock[k], r.length);
+            r = Converter.selectBits(r, pBlock);
             r = Converter.XORBytes(l, r);
             l = rBackup;
         }
@@ -104,7 +103,7 @@ public class Algorithm {
             r = Converter.computeExtendedBlock(r);
             r = Converter.XORBytes(r, subKeys[numOfSubKeys - k - 1]);
             r = Converter.sBlocks(r);
-            r = Converter.selectBits(r, pBlock[k], r.length);
+            r = Converter.selectBits(r, pBlock);
             r = Converter.XORBytes(l, r);
             l = rBackup;
         }
@@ -129,6 +128,7 @@ public class Algorithm {
     public byte[] encode(byte[] message)
     {
         int len;
+        //zapisanie dlugosc, w przypadku
         if ((message.length / 2 % 4) != 0)
             len = (message.length / 8 + 1) * 8;
         else
@@ -187,6 +187,7 @@ public class Algorithm {
         return null;
     }
 
+    //wykonuje 3 razy algorytm DES za pomoca trzech roznych kluczy
     public byte[] encode3DES(byte[] message)
     {
         setKeyHex(s_key1);
@@ -198,6 +199,7 @@ public class Algorithm {
         return result;
     }
 
+    //wykonuje 3 razy algorytm DES za pomoca trzech roznych kluczy
     public byte[] decode3DES (byte[] cipher)
     {
         setKeyHex(s_key3);
@@ -210,7 +212,7 @@ public class Algorithm {
     }
     //private
     private static final Logger l = LoggerFactory.getLogger(App.class.getName());
-    private String s_key, s_key1, s_key2, s_key3;
+    private String s_key = "000AAAFFF999555", s_key1 = "123123123123123", s_key2 = "ABCABCABCABCABC", s_key3 = "FEDCBA9876543210";
     private byte[] b_key;
     private byte subKeys[][];
     private static byte[] shift = {1, 3, 5, 7, 0, 2, 4, 6};

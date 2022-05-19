@@ -62,11 +62,11 @@ public class Controller {
     }
 
     public void onActionButtonEncode(ActionEvent actionEvent) throws IOException {
-        fr.setBytes(ar.decode3DES(fr.getBytes()));
+        fr.setBytes(ar.encode3DES(fr.getBytes()));
     }
 
     public void onActionButtonDecode(ActionEvent actionEvent) throws IOException {
-        fr.setBytes(ar.encode3DES(fr.getBytes()));
+        fr.setBytes(ar.decode3DES(fr.getBytes()));
     }
 
     public void onActionButtonSave(ActionEvent actionEvent) throws IOException {
