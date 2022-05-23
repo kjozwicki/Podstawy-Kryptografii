@@ -9,8 +9,19 @@
        <Button layoutX="25.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionButtonSave" prefHeight="25.0" prefWidth="150.0" text="Zapisz plik" />
        <Button layoutX="545.0" layoutY="25.0" mnemonicParsing="false" onAction="#onActionButtonEncode" prefHeight="25.0" prefWidth="150.0" text="Szyfruj plik" />
        <Button layoutX="545.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionButtonDecode" prefHeight="25.0" prefWidth="150.0" text="Deszyfruj plik" />
+       <Button layoutX="545.0" layoutY="125.0" mnemonicParsing="false" onAction="#onActionButtonGenerate" prefHeight="25.0" prefWidth="150.0" text="Generuj klucze" />
+       <Button layoutX="545.0" layoutY="150.0" mnemonicParsing="false" onAction="#onActionButtonSign" prefHeight="25.0" prefWidth="150.0" text="Dopisz podpis cyfrowy" />
+       <Button layoutX="545.0" layoutY="175.0" mnemonicParsing="false" onAction="#onActionButtonCheck" prefHeight="25.0" prefWidth="150.0" text="Sprawdz podpis" />
        <Button layoutX="25.0" layoutY="430.0" mnemonicParsing="false" onAction="#onActionButtonShow" prefHeight="25.0" prefWidth="150.0" text="Pokaz nazwe pliku" />
        <Button layoutX="25.0" layoutY="405.0" mnemonicParsing="false" onAction="#onActionButtonShowFile" prefHeight="25.0" prefWidth="150.0" text="Pokaz zawartosc pliku" />
        <Button fx:id="Exit" layoutX="545.0" layoutY="430.0" mnemonicParsing="false" onAction="#onActionButtonExit" prefHeight="25.0" prefWidth="150.0" text="Wyjscie z programu" />
+       <Label layoutX="25" layoutY="227.5" prefHeight="25.0" prefWidth="150.0" text="Klucz prywatny:" />
+       <TextField layoutX="115" layoutY="227.5" prefHeight="25.0" prefWidth="580.0" fx:id="l1" />
+       <Label layoutX="25" layoutY="252.5" prefHeight="25.0" prefWidth="150.0" text="Klucz publiczny:" />
+       <TextField layoutX="115" layoutY="252.5" prefHeight="25.0" prefWidth="580.0" fx:id="l2" />
+       <Label layoutX="25" layoutY="277.5" prefHeight="25.0" prefWidth="150.0" text="q i g:" />
+       <TextField layoutX="115" layoutY="277.5" prefHeight="25.0" prefWidth="580.0" fx:id="l3" />
+       <Label layoutX="25" layoutY="302.5" prefHeight="25.0" prefWidth="150.0" text="Mod p:" />
+       <TextField layoutX="115" layoutY="302.5" prefHeight="25.0" prefWidth="580.0" fx:id="l4" />
    </children>
 </AnchorPane>

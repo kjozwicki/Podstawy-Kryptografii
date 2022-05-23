@@ -38,27 +38,6 @@ public class Converter {
         }
     }
 
-    public static String bytesToHex(byte bytes[])
-    {
-        byte rawData[] = bytes;
-        StringBuilder hexText = new StringBuilder();
-        String initialHex = null;
-        int initHexLength = 0;
-
-        for (int i = 0; i < rawData.length; i++)
-        {
-            int positiveValue = rawData[i] & 0x000000FF;
-            initialHex = Integer.toHexString(positiveValue);
-            initHexLength = initialHex.length();
-            while (initHexLength++ < 2)
-            {
-                hexText.append("0");
-            }
-            hexText.append(initialHex);
-        }
-        return hexText.toString();
-    }
-
     public static byte[] XORBytes(byte[] a, byte[] b)
     {
         byte[] out = new byte[a.length];
